@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HeroContainer from './containers/HeroContainer';
+import BattleContainer from "./containers/BattleContainer";
+import WinnerContainer from "./containers/WinnerContainer";
+//import SortList from './components/sortByClick';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={HeroContainer}/>
+        <Route exact path='/battle' component={BattleContainer}/>
+        <Route exact path='/winner' component={WinnerContainer}/>
+      </Switch>
+    </Router>
+  
   );
 }
 
-export default App;
+
+
+export default App

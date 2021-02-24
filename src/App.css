@@ -1,38 +1,66 @@
-.App {
+img {
+  border-radius: 50%;
+}
+
+.evil  {
+  background-color: rgb(253, 78, 78);
+}
+
+.hero {
+  background-color: rgb(209, 209, 252);
+}
+
+.box {
+  text-align: center;
+  border-radius: 80px;
+  border: 20px solid green;
+}
+
+.sorted {
+  text-align: center;
+  border: 3px solid rgb(247, 7, 247);
+}
+
+.stats {
+  text-align: center;
+  padding: 20px;
+  border-radius: 80px;
+  border: 20px solid rgb(247, 122, 5);
+  background-color: rgb(233, 241, 161);
+}
+
+.champion {
+  text-align: center;  
+  border: 20px solid rgb(84, 157, 87);
+  border-radius: 30px;
+  background-color: rgb(248, 196, 240);
+}
+
+.chosen {
+  text-align: center;  
+  border: 20px solid rgb(243, 103, 22);
+  border-radius: 30px;
+  background-color: rgb(248, 196, 240);
+}
+
+.main-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.marquee {
+  text-align: center;
+  background-color: rgb(192, 157, 208);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.float-container {
+  border: 3px solid #fff;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.float-child {
+  width: 50%;
+  float: left;
+  padding: 20px;
+  border: 2px solid rgb(255, 3, 3);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
