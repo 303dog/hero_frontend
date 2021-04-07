@@ -1,30 +1,29 @@
 import React from "react";
-
-
+import './ticketStats.css';
 
 function TicketStats(props) {
   return (
-    <div className="chosen">
-      <h1>The Chosen</h1>
-      <div className="marquee">
-     <h2><p>HERO   - VS -   VILLAIN</p></h2>
-    <img src={props.good.smImg} alt={"hero"}/>
-    <img src={props.evil.smImg} alt={"evil"}/>
-      <p><b><u></u></b></p>
-      <div className="columns">
-          <div className="col-1">
-            <ul><b><p>HERO: <em>{props.good.name}</em></p></b>
-            </ul>
-         </div>
-         <div className="col-2">
-            <ul><b><p>VILLAIN: <em>{props.evil.name}</em></p></b>
-            </ul>
-         </div>
-         
-      </div>
-       </div>
-    </div>
-  );
-}            
-
+    <div className="boxChosen">
+      <div className='ticket__title'>
+        <h1>The Main Event</h1>
+        <div className='marquee'>
+          <div className='ticketOne  evenboxinner'>
+            <div className='col-1 box1'>
+              {props.good.name}
+        </div>
+            <img src={props.good.mdImg} alt={"hero"} className='oppImg'/>
+          </div>
+          <div className='ticketTwo evenboxinnerE'>
+            <div className='col-2 box2'>
+              {props.evil.name}
+          </div>
+            <img src={props.evil.mdImg} alt={"evil"} className='oppImg'/>
+          </div>
+            <h3>VS</h3>
+          </div>     
+            <h2>Ring the bell for results</h2>
+        </div>
+    </div>  
+    );
+}  
 export default TicketStats;

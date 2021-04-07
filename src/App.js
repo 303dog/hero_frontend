@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeroContainer from './containers/HeroContainer';
 import BattleContainer from "./containers/BattleContainer";
 import WinnerContainer from "./containers/WinnerContainer";
-//import SortList from './components/sortByClick';
+
 
 
 function App() {
@@ -16,7 +16,6 @@ function App() {
         <Route exact path='/winner' component={WinnerContainer}/>
       </Switch>
     </Router>
-  
   );
 }
 

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import TicketStats from "../components/ticketStats";
 import { setPoints, setGoodGuy, setEvilGuy, setWinner } from "../actions/actionCreator";
 import { Link } from 'react-router-dom';
+import './Battle.css';
 
 class BattleContainer extends Component {
         
@@ -28,34 +29,34 @@ class BattleContainer extends Component {
 
   renderWinner = () => {
     let champ = this.props.winner
-    console.log(champ.wins)
     return (
-      <>
       <div className="champion">
+      <div className="oppOne evenboxinnerB">
         <h1>The Victor!!!</h1>
-        <img src={champ.mdImg} alt="Champion" />
-        <div>
-          <h1>{champ.name}</h1>
-          <h2>{champ.name} can add another win for the <u>{champ.alignment}</u> guys!</h2>
-
-         <Link to="/winner" render={this.props.setPoints(this.props.winner)}> Totals</Link>
-          
+        </div>
+        <div className="battle__columns">
+        <img className='champPic' src={champ.mdImg} alt="Champion" />
+        </div>
+        <div className="battle__title">
+        <h2> One more win for the <u>{champ.alignment}</u> guys!</h2>
+        <div className="battle__titleB boxz"><h2>This makes a career total of {champ.wins} for {champ.name}</h2>
+        </div>
+        <Link to="/" className='linkButt' > Return</Link>
+        <button onClick={() => this.props.setPoints(this.props.winner)} className='point__button'>Points</button>
         </div>
       </div>
-      </>
     );
   };
 
     
-    renderBattle = () => {
-      return (
-      <>
-        <TicketStats good={this.props.goodGuy} evil={this.props.evilGuy}/>
-        {<button onClick={this.letsBattle}>Lets Battle</button>}
-      </>
-    )
-    
-  }
+  renderBattle = () => {
+    return (
+        <>
+          <TicketStats good={this.props.goodGuy} evil={this.props.evilGuy}/>
+          {<button class="button" onClick={this.letsBattle}>DING</button>}
+        </>
+  )
+}
   
   render() {
     return (

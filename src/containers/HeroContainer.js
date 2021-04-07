@@ -2,15 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setHeros, setGoodGuy, setEvilGuy } from "../actions/actionCreator";
 import Heros from '../components/heros';
-import SortList from '../components/sortByClick';
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import './HeroCont.css';
 
 
 class HeroContainer extends Component {
   
-
-
   renderPair = () => {
     return this.props.evilGuy
       ? this.props.history.push("/battle")
@@ -19,10 +15,9 @@ class HeroContainer extends Component {
 
   render() {
     return (
-    <>
-   
-    {this.renderPair()}
-    </>
+      <div className="hero__container">
+      {this.renderPair()}
+      </div>
     )}
 }
 

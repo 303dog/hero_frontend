@@ -7,12 +7,12 @@ import SortList from "../components/sortByClick";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
+
 class Heros extends Component {
   constructor (props){
     super(props)
   this.sortByWins = this.sortByWins.bind(this)
   this.state = {
-    ascending: true,
     newSortedList: [],
   }
 }
@@ -20,34 +20,34 @@ class Heros extends Component {
   componentDidMount() {
     this.props.setHeros()    
   }
-
   
+  // disabled //
   sortByWins = () => {
     this.setState({
       newSortedList: this.props.heros
     })
-    //debugger;
     return (
-    this.state.newSortedList.sort((a, b) => (a.wins < b.wins) ? 1 : -1).map(({heros, name}) => (
+    this.props.heros.sort((a, b) => (a.wins < b.wins) ? 1 : -1).map(({}) => (
       console.log(this.state.newSortedList),
       <div>{this.newSortedList}</div>
         ),)
         )      
       }
      
-  
+                                                    
  renderHeros = () => {
    return !this.props.goodGuy ? (
      <>
-     <button type="button" onClick={() => this.sortByWins()}>SORT by Wins</button>
-    <GoodHeros
-    goodGuys={this.props.heros.filter((hero) => hero.alignment === "good")}
-    selectGoodGuy={this.props.setGoodGuy}
+      <button type="button" onClick={() => this.sortByWins()}>SORT by Wins</button>             
+      <GoodHeros
+      goodGuys={this.props.heros.filter((hero) => hero.alignment === "good")}
+      selectGoodGuy={this.props.setGoodGuy}
     />
      </>
      ) : (
     <>
-    <EvilHeros
+      <button type="button" onClick={() => this.sortByWins()}>SORT by Wins</button> 
+      <EvilHeros
       evilGuys={this.props.heros.filter((hero) => hero.alignment === "bad")}
       selectEvilGuy={this.props.setEvilGuy}
     />
@@ -55,64 +55,20 @@ class Heros extends Component {
    );
  };
 
-
-
-// renderHeros = () => {
-//   return !this.props.goodGuy ? (
-//     <GoodHeros
-//       goodGuys={this.props.heros.filter((hero) => hero.alignment === "good")}
-//       selectGoodGuy={this.props.setGoodGuy}
-//     />
-//   ) : (
-//     <>
-//       <EvilHeros
-//         evilGuys={this.props.heros.filter((hero) => hero.alignment === "bad")}
-//         selectEvilGuy={this.props.setEvilGuy}
-//       />
-//     </>
-//   );
-// };
-
 render() {  
   return (
-    <>
-   
-    {this.renderHeros()}
-    </>
-  )
-}
-
+    <div className="heros__container">
+    <div className="card">
+      {this.renderHeros()}
+    </div>
+  </div>
+  )}
 }
 
 const mapStateToProps = (state) => ({
   heros: state.heros,
   goodGuy: state.goodGuy,
   evilGuy: state.evilGuy,
-
 });
 
 export default connect(mapStateToProps, { setHeros, setEvilGuy, setGoodGuy })(Heros);
-
-
-
-//
-//
-//handleClick = () => { 
-//  {this.sortByWins(this.props.heros)}
-// }
-//
-//
-//
-// sortByWins = (props) => {
-//   let sortedList = props
-//   if (this.state.ascending) {
-//       sortedList.map((a, b) => a.wins < b.wins)
-//       } else {
-//       sortedList.map((a, b) => a.wins > b.wins)
-//       }
-//       this.setState({
-//         ascending: !this.state.ascending,
-//         sortedList: sortedList
-//       }); console.log(props)
-//       //debugger;
-//}

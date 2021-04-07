@@ -49,7 +49,7 @@ img {
 
 .marquee {
   text-align: center;
-  background-color: rgb(192, 157, 208);
+  background-color: rgb(224, 219, 226);
 }
 
 .float-container {
@@ -64,3 +64,47 @@ img {
   border: 2px solid rgb(255, 3, 3);
 }
 
+.column {
+  float: left;
+  width: 10%;
+  padding: 0 10px;
+}
+
+
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  margin: 20px;
+  text-align: center;
+  background-color: #94d5e9;
+}
+
+.cardE {
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  margin: 20px;
+  text-align: center;
+  background-color: #f57474;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .columnhr {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    background-color: solid blue
+  }
+}

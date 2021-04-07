@@ -2,7 +2,7 @@
 
 export const setHeros = () => {
     return (dispatch) => {
-      fetch("http://localhost:3004/api/v1/heros")
+      fetch("http://localhost:3005/api/v1/heros")
         .then((res) => res.json())
         .then((data) => {
            const heros = data;
